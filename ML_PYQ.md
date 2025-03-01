@@ -9,8 +9,11 @@ The Maximum Likelihood (ML) and Maximum A Posteriori (MAP) are both estimation m
 1. **Simplicity and Objectivity**:
    - ML estimation is simpler as it doesn't require prior probability specification
    - The approach is more objective since it relies solely on the observed data
-   - ML estimator can be expressed as: $$h_{ML} = \arg\max_{h \in H} P(D|h)$$
-   where D is the observed data and h is the hypothesis
+   - ML estimator can be expressed as: 
+     
+     ![equation](https://latex.codecogs.com/gif.latex?h_%7BML%7D%20%3D%20%5Carg%5Cmax_%7Bh%20%5Cin%20H%7D%20P%28D%7Ch%29)
+     
+     where D is the observed data and h is the hypothesis
 
 2. **Asymptotic Properties**:
    - ML estimators are asymptotically unbiased
@@ -30,8 +33,11 @@ The Maximum Likelihood (ML) and Maximum A Posteriori (MAP) are both estimation m
 
 2. **Sensitivity to Data Sparsity**:
    - Performance degrades significantly with limited data
-   - MAP's prior acts as regularization: $$h_{MAP} = \arg\max_{h \in H} P(h|D) = \arg\max_{h \in H} P(D|h)P(h)$$
-   where P(h) is the prior probability
+   - MAP's prior acts as regularization: 
+     
+     ![equation](https://latex.codecogs.com/gif.latex?h_%7BMAP%7D%20%3D%20%5Carg%5Cmax_%7Bh%20%5Cin%20H%7D%20P%28h%7CD%29%20%3D%20%5Carg%5Cmax_%7Bh%20%5Cin%20H%7D%20P%28D%7Ch%29P%28h%29)
+     
+     where P(h) is the prior probability
 
 3. **Inability to Incorporate Domain Knowledge**:
    - Cannot leverage expert knowledge or previous experience
@@ -46,9 +52,13 @@ The Maximum Likelihood (ML) and Maximum A Posteriori (MAP) are both estimation m
 
 Consider estimating parameter θ:
 
-ML estimate: $$\hat{\theta}_{ML} = \arg\max_{\theta} \prod_{i=1}^n P(x_i|\theta)$$
+ML estimate: 
 
-MAP estimate: $$\hat{\theta}_{MAP} = \arg\max_{\theta} \prod_{i=1}^n P(x_i|\theta)P(\theta)$$
+![equation](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Ctheta%7D_%7BML%7D%20%3D%20%5Carg%5Cmax_%7B%5Ctheta%7D%20%5Cprod_%7Bi%3D1%7D%5En%20P%28x_i%7C%5Ctheta%29)
+
+MAP estimate: 
+
+![equation](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Ctheta%7D_%7BMAP%7D%20%3D%20%5Carg%5Cmax_%7B%5Ctheta%7D%20%5Cprod_%7Bi%3D1%7D%5En%20P%28x_i%7C%5Ctheta%29P%28%5Ctheta%29)
 
 The difference is the additional P(θ) term in MAP, which can help prevent overfitting and incorporate prior knowledge.
 
