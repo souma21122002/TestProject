@@ -153,10 +153,10 @@ Consider estimating the probability of a biased coin:
 
 ## Quick Reference Chart: Prior vs Posterior Probability
 
-| Aspect | Prior Probability P(θ) | Posterior Probability P(θ|D) |
-|--------|------------------------|------------------------------|
+| Aspect | Prior Probability | Posterior Probability |
+|--------|------------------|---------------------|
 | **Definition** | Initial belief about parameters before data collection | Updated belief about parameters after observing data |
-| **Mathematical Form** | P(θ) | P(θ\|D) = P(D\|θ)P(θ)/P(D) |
+| **Mathematical Form** | P(θ) | P(θ&#124;D) = P(D&#124;θ)P(θ)/P(D) |
 | **Timing** | Before data observation | After data observation |
 | **Dependencies** | Independent of current data | Depends on both prior and likelihood |
 | **Uncertainty** | Generally higher uncertainty | Usually lower uncertainty |
