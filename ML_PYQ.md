@@ -150,3 +150,29 @@ Consider estimating the probability of a biased coin:
 3. **Posterior**: Will be concentrated around 0.8, combining prior with data
 
 ![equation](https://latex.codecogs.com/gif.latex?P%28%5Ctheta%7CD%29%20%5Cpropto%20%5Ctheta%5E8%281-%5Ctheta%29%5E2)
+
+## Quick Reference Chart: Prior vs Posterior Probability
+
+| Aspect | Prior Probability P(θ) | Posterior Probability P(θ|D) |
+|--------|------------------------|------------------------------|
+| **Definition** | Initial belief about parameters before data collection | Updated belief about parameters after observing data |
+| **Mathematical Form** | P(θ) | P(θ\|D) = P(D\|θ)P(θ)/P(D) |
+| **Timing** | Before data observation | After data observation |
+| **Dependencies** | Independent of current data | Depends on both prior and likelihood |
+| **Uncertainty** | Generally higher uncertainty | Usually lower uncertainty |
+| **Source** | Expert knowledge, previous studies, assumptions | Combination of prior and observed data |
+| **Role** | Input to Bayesian analysis | Output of Bayesian analysis |
+| **Usage** | Starting point for inference | Decision making and inference |
+| **Flexibility** | Can be informative or non-informative | Always influenced by data |
+| **Example** | Uniform distribution over [0,1] for coin bias | Beta distribution peaked near observed frequency |
+
+### Common Prior Types:
+1. Informative Prior
+   - Based on strong prior knowledge
+   - Significantly influences posterior
+2. Non-informative Prior
+   - Minimal assumptions
+   - Lets data dominate inference
+3. Conjugate Prior
+   - Mathematically convenient
+   - Same family as posterior
