@@ -176,3 +176,100 @@ Consider estimating the probability of a biased coin:
 3. Conjugate Prior
    - Mathematically convenient
    - Same family as posterior
+
+---
+
+# Prior Knowledge in Bayesian Learning and Computational Cost Analysis
+
+## Prior Knowledge in Bayesian Learning
+
+Prior knowledge in Bayesian Learning represents our initial beliefs about the hypothesis space before observing any data. It encompasses:
+
+### 1. Components of Prior Knowledge
+
+1. **Domain Expertise**:
+   - Expert opinions and judgments
+   - Historical data from similar problems
+   - Known constraints or limitations
+
+2. **Mathematical Representation**:
+   - Expressed as probability distribution P(h) over hypothesis space H
+   - Assigns higher probabilities to more likely hypotheses
+   - ![equation](https://latex.codecogs.com/gif.latex?%5Csum_%7Bh%20%5Cin%20H%7D%20P%28h%29%20%3D%201)
+
+3. **Types of Prior Information**:
+   - Parameter constraints
+   - Structural relationships
+   - Expected ranges or values
+   - Domain-specific rules
+
+### 2. Incorporation Methods
+
+1. **Explicit Priors**:
+   - Directly specified probability distributions
+   - Example: Gaussian prior for weights in neural networks
+   - ![equation](https://latex.codecogs.com/gif.latex?P%28w%29%20%3D%20%5Cmathcal%7BN%7D%28%5Cmu%2C%20%5Csigma%5E2%29)
+
+2. **Hierarchical Priors**:
+   - Multiple levels of prior information
+   - Allows modeling complex dependencies
+   - More flexible but computationally intensive
+
+## Computational Cost Analysis
+
+### 1. Linear Computational Cost Explanation
+
+The statement "The computational cost required to determine the Bayes optimal hypothesis is linear in the number of candidate hypotheses" can be explained through the following analysis:
+
+1. **Bayes Optimal Hypothesis Calculation**:
+   - For each hypothesis h ∈ H:
+     * Calculate P(D|h) (likelihood)
+     * Multiply by P(h) (prior)
+     * Normalize by P(D)
+   
+2. **Mathematical Breakdown**:
+   ![equation](https://latex.codecogs.com/gif.latex?h_%7BMAP%7D%20%3D%20%5Carg%5Cmax_%7Bh%20%5Cin%20H%7D%20P%28h%7CD%29%20%3D%20%5Carg%5Cmax_%7Bh%20%5Cin%20H%7D%20%5Cfrac%7BP%28D%7Ch%29P%28h%29%7D%7BP%28D%29%7D)
+
+3. **Cost Analysis**:
+   - For n hypotheses:
+     * Each hypothesis requires constant time c for computation
+     * Total operations = c × n
+     * Therefore, O(n) complexity
+
+### 2. Why Linear?
+
+1. **Single Pass Processing**:
+   - Each hypothesis is evaluated exactly once
+   - No need for pairwise comparisons
+   - Independent evaluation of each hypothesis
+
+2. **Fixed Operations per Hypothesis**:
+   - Likelihood calculation: O(1)
+   - Prior probability lookup: O(1)
+   - Multiplication and comparison: O(1)
+
+3. **No Additional Overhead**:
+   - No sorting required
+   - No recursive calculations
+   - Simple maximization over computed values
+
+### 3. Practical Implications
+
+| Factor | Impact on Computation |
+|--------|---------------------|
+| **Number of Hypotheses** | Direct linear increase |
+| **Data Size** | Affects constant factor c |
+| **Prior Complexity** | Affects constant factor c |
+| **Memory Usage** | Linear O(n) |
+
+### 4. Limitations and Considerations
+
+1. **Practical Constraints**:
+   - Large hypothesis spaces may still be computationally expensive
+   - Memory requirements can be significant
+   - Numerical stability issues may arise
+
+2. **Optimization Opportunities**:
+   - Parallel processing possible
+   - Early stopping for unlikely hypotheses
+   - Hierarchical hypothesis organization
