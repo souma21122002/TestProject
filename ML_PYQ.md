@@ -273,3 +273,118 @@ The statement "The computational cost required to determine the Bayes optimal hy
    - Parallel processing possible
    - Early stopping for unlikely hypotheses
    - Hierarchical hypothesis organization
+
+---
+
+# Transforming Non-linearly Separable Data to Linearly Separable Data
+
+## Problem Overview
+
+When data points in 2D space cannot be separated by a straight line (non-linearly separable), we can transform them into a higher dimensional space (3D) where they become linearly separable. This is known as the kernel trick.
+
+## Mathematical Formulation
+
+### 1. Original 2D Space
+Consider data points in 2D space:
+![equation](https://latex.codecogs.com/gif.latex?x%20%3D%20%28x_1%2C%20x_2%29)
+
+### 2. Transformation Function
+The transformation Φ maps 2D points to 3D space:
+![equation](https://latex.codecogs.com/gif.latex?%5CPhi%28x%29%20%3D%20%28x_1%2C%20x_2%2C%20x_1%5E2%20&plus;%20x_2%5E2%29)
+
+## Common Transformation Methods
+
+### 1. Polynomial Transform
+Transform point (x₁, x₂) to 3D using:
+![equation](https://latex.codecogs.com/gif.latex?%5CPhi%28x%29%20%3D%20%28x_1%2C%20x_2%2C%20%28x_1%5E2%20&plus;%20x_2%5E2%29%29)
+
+Example for circular boundary:
+- Original space: x₁² + x₂² = r²
+- Transformed space: z = x₁² + x₂²
+
+### 2. Gaussian RBF Transform
+Transform using radial basis function:
+![equation](https://latex.codecogs.com/gif.latex?%5CPhi%28x%29%20%3D%20%28x_1%2C%20x_2%2C%20e%5E%7B-%28x_1%5E2%20&plus;%20x_2%5E2%29%7D%29)
+
+## Step-by-Step Process
+
+1. **Data Analysis**:
+   - Identify non-linear pattern in 2D
+   - Choose appropriate transformation
+
+2. **Feature Mapping**:
+   - Apply transformation Φ(x)
+   - Map each point to new space
+
+3. **Verification**:
+   - Check linear separability in 3D
+   - Adjust transformation if needed
+
+## Example: Circle to Plane
+
+Consider data points forming a circle in 2D:
+
+### Original Space (2D):
+- Inside circle: x₁² + x₂² ≤ r²
+- Outside circle: x₁² + x₂² > r²
+
+### Transformed Space (3D):
+1. Apply transformation:
+   - z = x₁² + x₂²
+   - Φ(x) = (x₁, x₂, z)
+
+2. Result:
+   - Points inside circle: z ≤ r²
+   - Points outside circle: z > r²
+   - Now separable by plane z = r²
+
+## Mathematical Properties
+
+### 1. Kernel Function
+The kernel function K(x,y) computes inner product in transformed space:
+![equation](https://latex.codecogs.com/gif.latex?K%28x%2Cy%29%20%3D%20%5CPhi%28x%29%20%5Ccdot%20%5CPhi%28y%29)
+
+### 2. Common Kernel Functions
+
+| Kernel Type | Function |
+|-------------|----------|
+| Polynomial | ![equation](https://latex.codecogs.com/gif.latex?K%28x%2Cy%29%20%3D%20%28x%5Ccdot%20y%20&plus;%20c%29%5Ed) |
+| RBF | ![equation](https://latex.codecogs.com/gif.latex?K%28x%2Cy%29%20%3D%20e%5E%7B-%5Cgamma%20%7C%7Cx-y%7C%7C%5E2%7D) |
+| Sigmoid | ![equation](https://latex.codecogs.com/gif.latex?K%28x%2Cy%29%20%3D%20%5Ctanh%28%5Ckappa%20x%5Ccdot%20y%20&plus;%20c%29) |
+
+## Advantages and Limitations
+
+### Advantages:
+1. **Separability**:
+   - Makes non-linear problems linearly separable
+   - Enables use of linear classifiers
+
+2. **Flexibility**:
+   - Various transformation options
+   - Can handle different patterns
+
+### Limitations:
+1. **Dimensionality**:
+   - Curse of dimensionality
+   - Increased computational cost
+
+2. **Parameter Selection**:
+   - Choosing appropriate kernel
+   - Tuning kernel parameters
+
+## Best Practices
+
+1. **Kernel Selection**:
+   - RBF for unknown data structure
+   - Polynomial for known degree relationships
+   - Linear for high-dimensional data
+
+2. **Parameter Tuning**:
+   - Cross-validation
+   - Grid search
+   - Bayesian optimization
+
+3. **Preprocessing**:
+   - Feature scaling
+   - Outlier removal
+   - Dimensionality consideration
