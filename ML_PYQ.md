@@ -273,3 +273,45 @@ The statement "The computational cost required to determine the Bayes optimal hy
    - Parallel processing possible
    - Early stopping for unlikely hypotheses
    - Hierarchical hypothesis organization
+---
+Here’s a concise explanation of the **advantages and disadvantages of Maximum A Posteriori (MAP)** over **Maximum Likelihood (ML)**, suitable for an exam:
+
+---
+
+### **Advantages of MAP over ML:**
+
+1. **Incorporates Prior Knowledge**:  
+   MAP uses prior information \( P(h) \) about the hypothesis, which can improve estimates, especially when data is limited or noisy. Mathematically:
+   \[
+   h_{\text{MAP}} = \arg\max_{h} P(D|h) \cdot P(h)
+   \]
+   This makes MAP more robust than ML, which ignores \( P(h) \).
+
+2. **Reduces Overfitting**:  
+   By incorporating prior knowledge, MAP regularizes the hypothesis and reduces overfitting to the training data \( D \), especially in small datasets.
+
+3. **Better Performance with Small Data**:  
+   When the dataset is small, MAP leverages prior information to make more accurate predictions, whereas ML may produce unreliable results due to overfitting.
+
+---
+
+### **Disadvantages of MAP over ML:**
+
+1. **Requires Prior Information**:  
+   MAP requires knowledge of the prior distribution \( P(h) \). If the prior is incorrect or unavailable, MAP may produce suboptimal results.
+
+2. **Computationally More Complex**:  
+   MAP involves computing both the likelihood \( P(D|h) \) and the prior \( P(h) \), making it more computationally expensive than ML, which only maximizes \( P(D|h) \).
+
+3. **Bias from Prior**:  
+   If the prior \( P(h) \) is poorly chosen, it can introduce bias into the estimation, leading to worse performance compared to ML.
+
+---
+
+### **Summary:**
+- **Advantages**: MAP incorporates prior knowledge, reduces overfitting, and performs better with small datasets.  
+- **Disadvantages**: MAP requires prior information, is computationally more complex, and can be biased if the prior is incorrect.
+
+---
+
+This answer is concise, includes mathematical expressions, and clearly highlights the trade-offs between MAP and ML.
